@@ -1,0 +1,94 @@
+﻿@model MyEmployeeApp.Models.Employee
+@{
+    ViewBag.Title = "Add Employee";
+}
+<script src="~/Scripts/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ddlState option').remove();
+        $.getJSON('GetAllStates', function (data) {
+            for (i = 0; i < data.length; i++) {
+                $('#ddlState').append('<option value="' + data[i].StateId + '">' + data[i].StateName + '</option>');
+            }
+        }).fail(function () {
+            alert("Error retreiving States");
+        });
+
+        //on Change of State DropDown
+        $('#ddlState').change(function () {
+            var stateId = $(this).find(":selected").val();
+            var stateName = $(this).find(":selected").text();
+            $('#hdnStateName').val(stateName);
+            if (stateId.length > 0) {
+                $('#ddlCity option').remove();
+                $.getJSON('GetCityByStateId', { StateId: stateId }, function (data) {
+                    for (i = 0; i < data.length; i++) {
+                        $('#ddlCity').append('<option value="' + data[i].CityId + '">' + data[i].CityName + '</option>');
+                    }
+                }).fail(function () {
+                    alert("Error retreiving City");
+                });
+            }
+        });
+
+        $('#ddlCity').change(function () {
+            var cityName = $(this).find(":selected").text();
+            $('#hdnCityName').val(cityName);
+        });
+
+        $.getJSON('GetEmployeeData', function (data) {
+            var htmlString = '<table width="100%" cellpaindg="2" cellspacing="2" border="1" style=border:1px solid black;>';
+            htmlString = htmlString + '<tr style="background-color:grey; font-weight:bold;font-size:14px; color:white;"><td>Employee Name</td><td>Designation</td><td>State</td><td>City</td></tr>'
+            for(i = 0; i < data.length; i++)
+            {
+                htmlString = htmlString + '<tr><td>' + data[i].EmpName + '</td><td>' + data[i].Designation + '</td><td>' + data[i].StateName + '</td><td>' + data[i].CityName + '</td></tr>';
+            }
+
+            htmlString = htmlString + '</table>';
+            $("#divEmployeeList").html(htmlString);
+        }).fail(function () {
+            alert('Error retreiving Employee Data');
+        });
+    });
+</script>
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+@using(@Html.BeginForm()){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="divMessage" style="color:green; font-size :16px; font-weight:bold;">@ViewBag.Result</div>
+     <fieldset>
+        <legend>Add New Employee</legend>
+
+         <ol>
+            <li>
+                @Html.LabelFor(m => m.EmpName)
+                @Html.TextBoxFor(m => m.EmpName)
+                @Html.ValidationMessageFor(m => m.EmpName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Designation)
+                @Html.TextBoxFor(m => m.Designation)
+                @Html.ValidationMessageFor(m => m.Designation)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.State)
+                <select id="ddlState" name="State" style="width:315px; height:30px;">                    
+                </select>
+                @Html.HiddenFor(m => m.StateName, new { id="hdnStateName" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.City)
+                <select id="ddlCity" name="City" style="width:315px;height:30px;">                    
+                </select>
+                @Html.HiddenFor(m => m.CityName, new { id="hdnCityName" })
+            </li>
+        </ol>
+         <input type="submit" value="Save" onclick="SaveRecord()" />
+    </fieldset>  
+    <div id="divEmployeeList">
+    </div>
+}
+

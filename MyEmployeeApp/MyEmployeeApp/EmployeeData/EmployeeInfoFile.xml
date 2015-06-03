@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee>
+    <EmployeeId>1</EmployeeId>
+    <EmpName>Rohit Kumar</EmpName>
+    <Designation>Sr. Software Engineer</Designation>
+    <State>5</State>
+    <StateName>Hyderabad</StateName>
+    <City>9</City>
+    <CityName>HyderabadCity1</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>2</EmployeeId>
+    <EmpName>Yasodha</EmpName>
+    <Designation>Trainee</Designation>
+    <State>7</State>
+    <StateName>Mumbai</StateName>
+    <City>13</City>
+    <CityName>MumbaiCity1</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>3</EmployeeId>
+    <EmpName>Ratna Kumar</EmpName>
+    <Designation>Software Engineer</Designation>
+    <State>2</State>
+    <StateName>Chennai</StateName>
+    <City>3</City>
+    <CityName>ChennaiCity1</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>4</EmployeeId>
+    <EmpName>Mallika</EmpName>
+    <Designation>Sr Database Architect</Designation>
+    <State>2</State>
+    <StateName>Chennai</StateName>
+    <City>3</City>
+    <CityName>ChennaCity1</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>5</EmployeeId>
+    <EmpName>Srinivas</EmpName>
+    <Designation>QA Lead</Designation>
+    <State>5</State>
+    <StateName>Hyderabad</StateName>
+    <City>10</City>
+    <CityName>HyderabadCity2</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>6</EmployeeId>
+    <EmpName>Manogna</EmpName>
+    <Designation>QA</Designation>
+    <State>3</State>
+    <StateName>Delhi</StateName>
+    <City>5</City>
+    <CityName>DelhiCity1</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>7</EmployeeId>
+    <EmpName>Prathyusha</EmpName>
+    <Designation>Sr. Software Engineer</Designation>
+    <State>10</State>
+    <StateName>Vijayawada</StateName>
+    <City>20</City>
+    <CityName>VijayawadaCity2</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>8</EmployeeId>
+    <EmpName>Sai</EmpName>
+    <Designation>Trainee</Designation>
+    <State>8</State>
+    <StateName>Pune</StateName>
+    <City>16</City>
+    <CityName>PuneCity2</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>9</EmployeeId>
+    <EmpName>Kiran</EmpName>
+    <Designation>QA</Designation>
+    <State>5</State>
+    <StateName>Hyderabad</StateName>
+    <City>10</City>
+    <CityName>HyderabadCity2</CityName>
+  </Employee>
+  <Employee>
+    <EmployeeId>10</EmployeeId>
+    <EmpName>QQQ</EmpName>
+    <Designation>qQQ</Designation>
+    <State>2</State>
+    <StateName>Chennai</StateName>
+    <City>4</City>
+    <CityName>ChennaiCity2</CityName>
+  </Employee>
+</ArrayOfEmployee>
